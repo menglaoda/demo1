@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;				
+			}
+			h1,h2,h3,h4,h5,h6{
+				font-weight: 500;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+			}
+			ul{
+				list-style: none;
+			}
+			body{
+				font-family: "宋体";
+				background: url(img/ia_100000015.jpg) no-repeat fixed 0px 0px/100%;
+			}
+			.box1{
+				text-align: center;
+				background: white;
+			}
+			.box1 img{
+				margin-top: 160px;
+			}
+			.box1 h2{
+				font-size: 40px;
+				margin: 25px 0px 10px;
+				position: relative;
+				top: 0px;
+			}
+			.box1 b{
+				position: relative;
+				top: 0px;
+				animation: myb 1s linear alternate infinite;
+			}
+			.box1 b:nth-child(2){
+				animation: myb 1s linear 0.25s alternate infinite;
+			}
+			.box1 b:nth-child(3){
+				animation: myb 1s linear 0.5s alternate infinite;
+			}
+			.box1 b:nth-child(4){
+				animation: myb 1s linear 0.75s alternate infinite;
+			}
+			.box1 b:nth-child(5){
+				animation: myb 1s linear 1s alternate infinite;
+			}
+			.box1 b:nth-child(6){
+				animation: myb 1s linear 1.25s alternate infinite;
+			}
+			.box1 b:nth-child(7){
+				animation: myb 1s linear 1.5s alternate infinite;
+			}
+			.box1 b:nth-child(8){
+				animation: myb 1s linear 1.75s alternate infinite;
+			}
+			.box1 b:nth-child(9){
+				animation: myb 1s linear 2s alternate infinite;
+			}
+			.box1 b:nth-child(10){
+				animation: myb 1s linear 2.25s alternate infinite;
+			}
+			.box1 b:nth-child(11){
+				animation: myb 1s linear 2.5s alternate infinite;
+			}
+			@keyframes myb{
+				from{top: 0;}
+				to{top: -30px;}
+			}
+			.box1 p{
+				padding: 140px 0px 30px;
+			}
+			.box2 li{
+				float: left;
+				width: 25%;
+				position: relative;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			.box2 img{
+				width: 100%;
+				display: block;
+				transform: scale(1,1);
+				transition: all 1s;
+			}
+			.box2 li:hover img{
+				transform: scale(1.2,1.2);
+			}
+			.box2 p{
+				position: absolute;
+				bottom: 20px;
+				left: 20px;
+				color: #ccc;
+			}
+			.box3{
+				clear: both;
+				background: white;
+				text-align: center;
+				padding: 120px 0px;
+			}
+			.box3 h2{
+				width: 40%;
+				margin: 0 auto;
+				font-size:40px ;
+				line-height: 1.5em;
+			}
+			.box4{
+				text-align: center;
+				padding: 130px 0;
+				background: rgb(243,243,243);
+			}
+			.oh3{
+				font-size: 30px;
+				position: relative;
+				z-index: 10;
+			}
+			.box4-list{
+				width: 80%;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.box4-list li{
+				width: 32%;
+				float: left;
+				
+			}
+			.box4-list li:nth-child(2){
+				margin: 0px 2%;
+			}
+			.box4-list h4{
+				margin: 45px 0px 25px;
+			}
+			.box4-list p{
+				color: #666;
+				line-height: 2em;
+			}
+			.box5{
+				background: white;
+			}
+			.imgbox img{
+				margin: 50px 5% 0px;
+				transform: rotate(0deg);
+				transition: all 1s;
+				cursor: pointer;
+			}
+			.imgbox img:hover{
+				transform: rotate(360deg) scale(2,2);
+			}
+			.box6{
+				background: transparent;
+				color: white;
+			}
+			.box6 p{
+				margin: 30px 0px;
+				position: relative;
+				z-index: 10;
+			}
+			.box6 a{
+				color: white;
+				width: 227px;
+				height: 48px;
+				border: solid 2px white;
+				display: inline-block;
+				line-height: 48px;
+				margin: 0px 15px;
+				position: relative;
+				z-index: 10;
+			}
+			.box7{
+				background: white;
+				padding: 50px 0px;
+				text-align: center;
+			}
+			.box7 span{
+				display: inline-block;
+				margin: 20px 15px ;
+				font-size: 14px;
+			}
+			.box7 i{
+				width:24px ;
+				height: 24px;
+				margin: 0px 10px;
+				background: url(img/ia_100000018.png) -48px -72px;
+				display: inline-block;
+			}
+			.box7 i:nth-child(2){
+				background: url(img/ia_100000018.png) -24px -72px;
+			}
+			.box7 i:nth-child(3){
+				background: url(img/ia_100000018.png) -0px -72px;
+			}
+			@media screen  and (max-width: 680px) {
+				.box1 img {
+				    margin-top: 100px;
+				}
+				.box1 h2 {
+				    font-size: 30px;
+				}
+				.box1 span{
+					font-size: 20px;
+    				line-height: 1.5em;
+				}
+				.box1 p {
+				    padding: 60px 0px 30px;
+				}
+				.box2 li {
+				    float: none;
+				    width: 100%;
+				}
+				.box3{
+					padding: 60px 0px;
+				}
+				.box3 h2 {
+				    width: 90%;
+				    font-size: 26px;
+				    line-height: 2em;
+				}
+				.box4{
+					padding: 30px 0px;
+				}
+				.box4-list li {
+				    width: 100%;
+				}
+				.imgbox img {
+				    width: 22%;
+				    margin: 19px 0% 0px;
+				}
+				.box6{
+					position: relative;
+					background: url(img/ia_100000015.jpg) no-repeat 0px 0px/cover;
+				}
+				.box6:before{
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0px;
+					background: rgba(0,0,0,0.5);
+				}
+				.box6 a{
+					width: 86%;
+					margin: 5px 15px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<img src="img/ia_100000002.jpg" />
+			<h2>
+				<b>一</b>
+				<b>站</b>
+				<b>式</b>
+				<b>品</b>
+				<b>牌</b>
+				<b>营</b>
+				<b>销 </b>
+				<b>咨</b>
+				<b>询</b>
+				<b>团</b>
+				<b>队</b>
+			</h2>
+			<span>打通品牌+产品+流量+变现+持续变现的营销闭环</span>
+			<p>品牌设计公司.</p>
+		</div>
+		<ul class="box2">
+			<li>
+				<img src="img/ia_100000003.jpg" />
+				<p>品牌VI</p>
+			</li>
+			<li>
+				<img src="img/ia_100000004.jpg" />
+				<p>品牌VI</p>
+			</li>
+			<li>
+				<img src="img/ia_100000005.jpg" />
+				<p>品牌VI</p>
+			</li>
+			<li>
+				<img src="img/ia_100000006.png" />
+				<p>品牌VI</p>
+			</li>
+		</ul>
+		<div class="box3">
+			<h2>品牌全价值综合体系构建者专注创造和管理品牌</h2>
+		</div>
+		<div class="box4">
+			<h3 class="oh3">服務項目</h3>
+			<ul class="box4-list">
+				<li>
+					<h4>营销策划</h4>
+					<p>您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素您还可以添加图标，按钮，图片等常用元素</p>
+				</li>
+				<li>
+					<h4>营销策划</h4>
+					<p>您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素您还可以添加图标，按钮，图片等常用元素</p>
+				</li>
+				<li>
+					<h4>营销策划</h4>
+					<p>您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素您还可以添加图标，按钮，图片等常用元素</p>
+				</li>
+			</ul>
+		</div>
+		<div class="box4 box5">
+			<h3 class="oh3">合作品牌</h3>
+			<div class="imgbox">
+				<img src="img/ia_100000007.png" />
+				<img src="img/ia_100000008.png" />
+				<img src="img/ia_100000009.png" />
+				<img src="img/ia_100000010.png" />
+			</div>
+		</div>
+		<div class="box4 box5 box6">
+			<h3 class="oh3">合作品牌</h3>
+			<p>获取联系</p>
+			<a href="#">
+				电话联系：500-5666-5600
+			</a>
+			<a href="#">
+				邮件联系
+			</a>
+		</div>
+		<div class="box7">
+			<img src="img/ia_100000002.jpg" />
+			<div>
+				<span>服务条款                 </span>
+				<span> 隐私政策</span>
+				<span>用户说明</span>
+			</div>
+			<div>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload =function(){
+			document.oncontextmenu = function(){
+				return false
+			}
+		}
+	</script>
+</html>
