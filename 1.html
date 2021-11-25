@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-webkit-user-select: none;
+				user-select: none;
+			}
+			body{
+				text-align: center;
+			}
+			#obox{
+				width: 60%;
+				height: 450px;
+				border: solid 1px black;
+				margin: 50px auto 0px;
+				position: relative;
+				top: 0;
+				/*animation: myobox 0.1s 5;*/
+			}
+			@keyframes myobox{
+				0%{top: 0;}
+				25%{top: -10px;}
+				50%{top: 0;}
+				75%{top: 10px;}
+				100%{top: 0;}
+			}
+			h3{
+				padding: 40px 0px;
+			}
+			p{
+				margin-bottom: 30px;
+			}
+			#box1{
+				position: absolute;
+				width: 120px;
+				height: 80px;
+				background: red;
+				left: -121px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			#box1 span{
+				font-size: 30px;
+				margin-right: 5px;
+			}
+			.active{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 24px;
+				cursor: pointer;
+			}
+			.bar{
+				position: fixed;
+				top: 0px;
+				left: 0;
+				width: 100%;
+				height: 100vh;
+				background: rgba(0,0,0,0.5);
+				display: none;
+			}
+			.bar2{
+				width: 300px;
+				height: 180px;
+				background: white;
+				border-radius: 10px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -90px;
+				margin-left: -150px;
+			}
+			.bar2 h2{
+				font-size: 30px;
+				margin: 40px 0px 20px;
+			}
+			.bar2 button{
+				border: none;
+				background: green;
+				color: white;
+				padding: 4px 20px;
+				border-radius: 4px;
+				margin: 0px 5px;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.querySelector("button");
+				var s1 = document.querySelector(".s1");
+				var s2 = document.querySelector(".s2");
+				var obox = document.querySelector("#obox");
+				var bar = document.querySelector(".bar");
+				var qd = document.querySelector(".qd");
+				var fh = document.querySelector(".fh");
+				var num1 = 0;//得分
+				var num2 = 0;//失分
+				//点击开始按钮
+				btn.onclick = function(){
+					//btn.onclick=null;
+					btn.setAttribute("disabled",true);
+					btn.innerHTML = "游戏正在进行中";
+					creatimg();
+				}
+				//随机掉下QQ表情
+				var speed =2;
+				var speed2 =50;
+				function creatimg(){					
+					var img1 = document.createElement("img");
+					//[1,50]随机数
+					var n1 = Math.ceil(Math.random()*50);
+					img1.src = "QQexp/"+n1+".gif";
+					img1.className = "active";
+					obox.appendChild(img1);
+					var oboxw = obox.clientWidth;
+					var imgw = img1.offsetWidth;
+					img1.style.left = Math.round(Math.random()*(oboxw-imgw))+"px";
+					var t1 = img1.offsetTop;
+					var timer = setInterval(function(){
+						t1+=speed;
+						img1.style.top = t1+"px";
+						
+						//碰到下边框
+						var t2=img1.offsetTop;
+						if(t2+img1.offsetHeight>=obox.clientHeight){
+							clearInterval(timer);
+							img1.style.top= obox.clientHeight-img1.offsetHeigh+"px";
+							//变成炸弹
+							img1.src="QQexp/51.gif";
+							obox.style.animation = "myobox 0.1s 5";
+							img1.onclick=null;
+							num2++;
+							s2.innerHTML = num2;
+							setTimeout(function(){
+								obox.style.animation="none";
+								obox.removeChild(img1);
+								if(num2==5){
+									//弹窗出现
+									bar.style.display = "block";
+								}else{
+									creatimg();
+								}
+							},500)	
+						}else{
+							//点击图片
+							img1.onclick = function(){
+								img1.onclick=null;
+								num1++;
+								speed2--;
+								if(speed2<=5){
+									speed2=5;
+								}
+								s1.innerHTML = num1;
+								clearInterval(timer);
+								img1.src="QQexp/52.gif";
+								var x1 = img1.offsetLeft;
+								var a1 = 5;
+								var a2 = 0;
+								var time1 = setInterval(function(){
+									a2++;
+									x1+=a1;
+									img1.style.left = x1+"px";
+									a1*=-1;
+									if(a2==50){
+										clearInterval(time1);
+										obox.removeChild(img1);
+										creatimg();
+									}
+								},10)
+							}
+						}
+					},speed2);
+					
+					//禁止拖拽
+					window.ondragstart = function(){
+						return false;
+					}
+				}
+				
+				//点击确定
+				qd.onclick = function(){
+					open("http://127.0.0.1:8020/web%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/JS%E5%AD%A6%E4%B9%A0/48%E4%BD%A0%E7%9A%84%E9%BC%A0%E6%A0%87%E6%9C%89%E5%A4%9A%E5%BF%AB.html","_self");
+				}
+				//满血复活
+				fh.onclick = function(){
+					num2=0;
+					s2.innerHTML = num2;
+					bar.style.display = "none";
+					creatimg();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img ="false" />
+		<h3>你的鼠标有多块？</h3>
+		<p>游戏说明：点击“开始游戏”，随机掉下QQ表情，点中它，千万别让它掉下去!!!</p>
+		<button>开始游戏</button>
+		<div id="obox">
+			<div id="box1">
+				<h4>得分：<span class="s1">0</span>分</h4>
+				<h4>失分：<span class="s2">0</span>分</h4>
+			</div>
+			
+		</div>
+		<div class="bar">
+			<div class="bar2">
+				<h2>游戏结束！</h2>
+				<button class="qd">确定</button>
+				<button class="fh">满血复活</button>
+			</div>
+		</div>
+	</body>
+</html>
